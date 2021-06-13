@@ -45,59 +45,87 @@ a {
 
 .product-container {
   min-height: calc(100vh - 60px);
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 20px;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 50px;
-      grid-template-areas: "img title" "img description" "img varnish" "img price" "img cart";
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .product-img {
   margin-right: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .product-img__single {
-  max-height: 350px;
+  max-height: 437px;
 }
 
 .product-details {
-  /* width: 50%;
+  width: 50%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  flex-direction: column; */
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .product-details__title {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: title;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .product-details__description {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: description;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .product-details__varnish {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  grid-area: varnish;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .product-details__price {
-  -ms-grid-row: 4;
-  -ms-grid-column: 2;
-  grid-area: price;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+#select {
+  margin-left: 10px;
+  font-size: 20px;
+  border-radius: 22px;
+  border: 2px solid #f09d51;
+  padding: 6px;
+}
+
+#select:focus {
+  text-decoration: none;
 }
 
 .addToCart {
-  -ms-grid-row: 5;
-  -ms-grid-column: 2;
-  grid-area: cart;
+  background-color: #f09d51;
+  font-weight: 700;
+  border: none;
+  height: 40px;
+  border-radius: 30px;
+  font-size: 20px;
+  color: #222;
+}
+
+.addToCart:hover {
+  background-color: #e7e2dd;
 }
 
 * {
@@ -511,6 +539,7 @@ footer {
 .footer-link {
   color: #222;
   padding-bottom: 0.1rem;
+  font-size: 20px;
 }
 
 .footer-link:hover {
