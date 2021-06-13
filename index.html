@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Test)Orinoco - Meubles caca</title>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/353d67f000.js" crossorigin="anonymous"></script>
+    <!-- Css -->
+    <link rel="stylesheet" href="/Front-End/css/styles.css">
+</head>
+
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav class="navbar">
+        <div class="navbar-center">
+            <span class="nav-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+            <img src="/Front-End/Images-Perso/logo-orimeubles.svg" alt="Logo Test" class="nav-img">
+            <div class="cart-btn">
+                <span class="nav-icon">
+                    <i class="fas fa-cart-plus"></i>
+                </span>
+                <div class="cart-items">0</div>
+            </div>
+        </div>
+    </nav>
+    <!-- Fin de la Barre de Navigation -->
+
+    <!-- Bannière -->
+    <header class="hero">
+        <div class="banner">
+            <h1 class="banner-title">Collection de Meubles</h1>
+            <button class="banner-btn">Acheter</button>
+        </div>
+    </header>
+    <!-- Fin de la Bannière -->
+
+    <!-- Produits -->
+    <section class="products">
+        <div class="section-title">
+            <h2>Nos produits</h2>
+        </div>
+        <div class="products-center">
+
+            <!-- Produit 1 -->
+            <template id="templateProduct">
+                <article class="product">
+                    <div class="img-container" id="productImg">
+                        <img src="" alt="Meuble Chêne 1" class="product-img">
+                        <button class="bag-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            Ajouter au Panier
+                        </button>
+                    </div>
+                    <h3 id="productName">Meuble Chêne 1</h3>
+                    <h4 id="productPrice">400€</h4>
+                </article>
+            </template>
+            <!-- Fin de Produit 1 -->
+
+        </div>
+    </section>
+    <!-- Fin des Produits -->
+
+    <!-- Panier -->
+    <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart">
+                <i class="fas fa-window-close"></i>
+            </span>
+            <h2>Votre Panier</h2>
+            <div class="cart-content">
+
+                <!-- Objet dans Panier -->
+                <div class="cart-item">
+                    <img src="./images/oak_1.jpg" alt="Produit">
+                    <div>
+                        <h4>Meuble Chêne 1</h4>
+                        <h5>400€</h5>
+                        <span class="remove-item">Supprimer</span>
+                    </div>
+
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                        <p class="item-amount">1</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <!-- Fin Objet dans Panier -->
+
+            </div>
+
+            <div class="cart-footer">
+                <h3>Votre Total : $ <span class="cart-total">0</span></h3>
+                <button class="clear-cart banner-btn">Remettre à zéro</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- Fin du Panier -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <a href="#" class="footer-link">Politique de confidentialité</a>
+            <a href="#" class="footer-link">CGV</a>
+            <a href="#" class="footer-link">Nous Contacter</a>
+        </div>
+    </footer>
+
+    <!-- Fin du Footer -->
+
+    <script src="/Back-End/app.js"></script>
+    <script src="/Front-End/JS/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+@import "./variables";
+
+// Feuille de Style du Footer, identique sur toutes les pages
+
+footer {
+  background: rgb(231, 226, 221);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.footer-link {
+  color: $mainBlack;
+  padding-bottom: $mainSpacing;
+}
+
+.footer-link:hover {
+  font-weight: 700;
+}
