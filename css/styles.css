@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -15,10 +16,12 @@ body {
   color: #222;
   background: #fff;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+  color: none;
 }
 
 * {
@@ -32,10 +35,67 @@ body {
   color: #222;
   background: #fff;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+  color: none;
+}
+
+.product-container {
+  min-height: calc(100vh - 60px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.product-img {
+  width: 50%;
+}
+
+.product-img__single {
+  width: 80%;
+}
+
+.product-details {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  color: #222;
+  background: #fff;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: none;
 }
 
 .navbar {
@@ -104,10 +164,12 @@ body {
   color: #222;
   background: #fff;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+  color: none;
 }
 
 .hero {
@@ -167,10 +229,12 @@ body {
   color: #222;
   background: #fff;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+  color: none;
 }
 
 .products {
@@ -270,10 +334,12 @@ body {
   color: #222;
   background: #fff;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+  color: none;
 }
 
 .cart-overlay {
@@ -398,10 +464,12 @@ body {
   color: #222;
   background: #fff;
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+  color: none;
 }
 
 footer {

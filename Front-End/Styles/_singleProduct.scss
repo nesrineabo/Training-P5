@@ -1,0 +1,26 @@
+@import "./variables";
+
+.product-container {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.product-img {
+  width: 50%;
+
+  &__single {
+    width: 80%;
+  }
+}
+
+.product-details {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
