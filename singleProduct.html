@@ -70,6 +70,43 @@
 
     </main>
 
+
+    <!-- Panier -->
+    <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart">
+                <i class="fas fa-window-close"></i>
+            </span>
+            <h2>Votre Panier</h2>
+            <div class="cart-content">
+                <!-- Objet dans Panier -->
+                <div class="cart-item">
+                    <img src="./images/oak_1.jpg" alt="Produit" />
+                    <div>
+                        <h4>Meuble Chêne 1</h4>
+                        <h5>400€</h5>
+                        <span class="remove-item">Supprimer</span>
+                    </div>
+
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                        <p class="item-amount">1</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <!-- Fin Objet dans Panier -->
+            </div>
+
+            <div class="cart-footer">
+                <h3>Votre Total : $ <span class="cart-total">0</span></h3>
+                <button class="clear-cart banner-btn">Remettre à zéro</button>
+            </div>
+        </div>
+    </div>
+    <!-- Fin du Panier -->
+
+
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -80,3 +117,9 @@
     </footer>
 
     <!-- Fin du Footer -->
+
+    <script src="/Back-End/app.js"></script>
+    <script src="/Front-End/JS/index.js"></script>
+</body>
+
+</html>

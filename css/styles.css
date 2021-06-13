@@ -401,7 +401,6 @@ a {
   transition: all 0.3s linear;
   background: rgba(240, 157, 81, 0.5);
   z-index: 2;
-  visibility: hidden;
 }
 
 .cart {
@@ -416,8 +415,6 @@ a {
   padding: 1.5rem;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
 }
 
 .showCart {
@@ -500,6 +497,18 @@ a {
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
+}
+
+.show-response {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mask-response {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 * {

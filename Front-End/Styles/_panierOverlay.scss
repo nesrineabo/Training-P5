@@ -11,7 +11,7 @@
   transition: $mainTransition;
   background: rgba(240, 157, 81, 0.5);
   z-index: 2;
-  visibility: hidden;
+  //visibility: visible;
 }
 
 .cart {
@@ -25,7 +25,7 @@
   background: rgb(231, 226, 221);
   padding: 1.5rem;
   transition: $mainTransition;
-  transform: translateX(100%);
+  //transform: translateX(100%);
 }
 
 .showCart {
@@ -106,4 +106,15 @@
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
+}
+
+.show-response {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mask-response {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(100%);
 }
