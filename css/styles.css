@@ -365,7 +365,7 @@ a {
 
 .hero {
   min-height: calc(100vh - 60px);
-  background: url("/Images-Perso/hero-bcg.jpeg") center/cover no-repeat;
+  background: url("./Images-Perso/hero-bcg.jpeg") center/cover no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
