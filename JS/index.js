@@ -3,10 +3,10 @@ const addToCart = document.querySelector(".addToCart");
 const closeCart = document.querySelector(".close-cart");
 
 // Afficher le Panier Overlay au clic sur "Ajouter au panier"
-// addToCart.addEventListener("click", () => {
-//   cartOverlay.classList.add("show-response");
-//   console.log("Je te vois !");
-// });
+addToCart.addEventListener("click", () => {
+  cartOverlay.classList.add("show-response");
+  console.log("Je te vois !");
+});
 
 // Fermer le Panier Overlay au clic sur la croix
 closeCart.addEventListener("click", () => {
@@ -35,7 +35,7 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
 
       let productPrice = objet.price / 100; // variable prix pour le diviser par 100
 
-      //j'injecte mon HTML avec les bonnes variables directement dans le DOM
+      //j'injecte mon HTML avec les bonnes variables et mon template directement dans le DOM
       productsDOM.innerHTML += `
                 <article class="product">
                     <div class="img-container" id="productImg">
