@@ -58,6 +58,13 @@
   opacity: 0.5;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .product h3 {
   text-transform: capitalize;
   font-size: 1.1rem;
@@ -71,4 +78,22 @@
   letter-spacing: $mainSpacing;
   color: $primaryColor;
   text-align: center;
+  margin-bottom: 12px;
+}
+
+.more-info {
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: $mainSpacing;
+  font-size: 1rem;
+  background: $primaryColor;
+  color: $mainBlack;
+  border: 1px solid $primaryColor;
+  transition: $mainTransition;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    color: $primaryColor;
+  }
 }

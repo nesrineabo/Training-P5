@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./panierOverlay";
+@import "./nav";
 
 .product-container {
   min-height: calc(100vh - 60px);
@@ -59,21 +60,19 @@
 }
 
 .addToCart {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  background-color: $primaryColor;
-  font-weight: 400;
-  border: 1px solid transparent;
-  height: 40px;
-  border-radius: 16px;
-  font-size: 16px;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: $mainSpacing;
+  font-size: 1rem;
+  background: $primaryColor;
   color: $mainBlack;
+  border: 1px solid $primaryColor;
+  transition: $mainTransition;
   cursor: pointer;
-  padding: 0.275rem 0.75rem;
 
   &:hover {
-    background-color: rgb(231, 226, 221);
+    background-color: transparent;
+    color: $primaryColor;
   }
 }
 

@@ -9,12 +9,12 @@ const closeCart = document.querySelector(".close-cart");
 // });
 
 // Fermer le Panier Overlay au clic sur la croix
-closeCart.addEventListener("click", () => {
-  cartOverlay.classList.add("mask-response");
-  console.log(
-    "je suis cliqué, et tu as réussi à me fermer ! bravo à toi Nes !^^"
-  );
-});
+// closeCart.addEventListener("click", () => {
+//   cartOverlay.classList.add("mask-response");
+//   console.log(
+//     "je suis cliqué, et tu as réussi à me fermer ! bravo à toi Nes !^^"
+//   );
+// });
 
 // est-ce qu'on peut faire "afficher panier overlay si "ajouter au panier" est cliqué" ?
 
@@ -26,7 +26,7 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
     if (response.ok) {
       return response.json(); // Si response ok, retourne un objet json
     } else {
-      Promise.reject(response.status); // sinon, me retroune la cause de l'echec
+      Promise.reject(response.status); // sinon, me retourne la cause de l'échec
     }
   })
 
@@ -40,9 +40,7 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
       //j'injecte mon HTML avec les bonnes variables et mon template directement dans le DOM
       productsDOM.innerHTML += `
                 <article class="product">
-                    <a class="img-container" id="productImg" href="singleProduct.html?id=${
-                      produit._id
-                    }">
+                    <div class="img-container" id="productImg">
                         <img src="${produit.imageUrl}" alt="${
         produit.name
       }" class="product-img" />
@@ -50,9 +48,12 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
                             <i class="fas fa-shopping-cart"></i>
                             Ajouter au Panier
                         </button>
-                    </a>
+                    </div>
                     <h3 id="productName">${produit.name}</h3>
                     <h4 id="productPrice">${productPrice.toFixed(2)} €</h4>
+                    <a href="singleProduct.html?id=${
+                      produit._id
+                    }"> <button class="more-info">Plus d'informations</button></a>
                 </article>
                 `;
     });
