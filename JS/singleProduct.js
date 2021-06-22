@@ -40,7 +40,7 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
             <input type="number" id="productQty" min="1" value="1">
             <div class="varnishSelection">
                 <label for="customSelection">Vernis : </label>
-                <select id="customSelection">${varnish}</select>
+                <select id="customSelection">${product.varnish}</select>
             </div>
 
             <p class="product-details__price">Prix : <span class="prix">${productUnitPrice}</span> €</p>
@@ -51,48 +51,48 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
     //--appel la fonction de calcul pour le prix total
     calculePrice(productUnitPrice);
 
-    // //On écoute un évènement au clic sur ajouter au panier qui ajoutera le produit dans notre LocalStorage
-    // btnSPCard.addEventListener("click", () => {
-    //   addLocalStorage();
-    // });
+    //On écoute un évènement au clic sur ajouter au panier qui ajoutera le produit dans notre LocalStorage
+    btnSPCard.addEventListener("click", () => {
+      addLocalStorage();
+    });
 
-    // // Création de la fonction addLocalStorage : stocke les données dans un objet
-    // function addLocalStorage() {
-    //   const varnishElt = document.getElementById("customSelection");
-    //   const quantityElt = document.getElementById("productQty");
+    const varnishElt = document.getElementById("customSelection");
+    const quantityElt = document.getElementById("productQty");
 
-    //   let productObj = {
-    //     _id: product._id,
-    //     image: product.imageUrl,
-    //     name: product.name,
-    //     varnish: varnishElt.nodeValue,
-    //     quantity: quantityElt.nodeValue,
-    //     totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
-    //     price: product.price / 100,
-    //   };
+    // On ajoute au local Storage qu'on vient de créer
 
-    //   // On ajoute au local Storage qu'on vient de créer
+    let cartFill = JSON.parse(localStorage.getItem("basket"));
 
-    //   let cartFill = JSON.parse(localStorage.getItem("basket"));
+    let productObj = {
+      _id: product._id,
+      image: product.imageUrl,
+      name: product.name,
+      varnish: varnishElt.nodeValue,
+      quantity: quantityElt.nodeValue,
+      totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
+      price: product.price / 100,
+    };
 
-    //   // Si je n'ai pas de panier
+    // Création de la fonction addLocalStorage : stocke les données dans un objet
+    function addLocalStorage() {
+      // Si je n'ai pas de panier
 
-    //   if (!cartFill) {
-    //     let cartFill = [];
-    //     cartFill.push(productObj);
-    //     localStorage.setItem("basket", JSON.stringify(cartFill));
-    //     window.location.href = "cart.html";
-    //   } else if (!cartFill.some((p) => p._id === productObj._id)) {
-    //     // vérification : si je n'ai pas déjà mon objet dans mon panier avant l'ajout
-    //     cartFill.push(productObj);
-    //     localStorage.setItem("basket", JSON.stringify(cartFill));
-    //   } else {
-    //     // Sinon j'enlève celui qui y est déjà et je remplace avec la nouvelle quantité
-    //     const newCart = cartFill.filter((p) => p._id !== productObj._id);
-    //     newCart.push(productObj);
-    //     localStorage.setItem("basket", JSON.stringify(newCart));
-    //   }
-    // }
+      if (!cartFill) {
+        let cartFill = [];
+        cartFill.push(productObj);
+        localStorage.setItem("basket", JSON.stringify(cartFill));
+        window.location.href = "cart.html";
+      } else if (!cartFill.some((p) => p._id === productObj._id)) {
+        // vérification : si je n'ai pas déjà mon objet dans mon panier avant l'ajout
+        cartFill.push(productObj);
+        localStorage.setItem("basket", JSON.stringify(cartFill));
+      } else {
+        // Sinon j'enlève celui qui y est déjà et je remplace avec la nouvelle quantité
+        const newCart = cartFill.filter((p) => p._id !== productObj._id);
+        newCart.push(productObj);
+        localStorage.setItem("basket", JSON.stringify(newCart));
+      }
+    }
   });
 
 // Création de la fonction qui calcule le prix en fonction de la quantité sélectionnée
