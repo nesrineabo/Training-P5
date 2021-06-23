@@ -8,7 +8,7 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
   .then((response) => {
     // ça me renvoit une 1ère promesse
     if (response.ok) {
-      return response.json(); // si la réponse est ok, me retourne un objet JSON
+      return (product = response.json()); // si la réponse est ok, me retourne un objet JSON
     } else {
       Promise.reject(response.status); // me retourne la cause de l'échec
     }
@@ -17,11 +17,11 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
   .then((product) => {
     // si response ok, renvoie d'une seconde promesse
     let productUnitPrice = product.price / 100; // prix produit unitaire divisé par 100
-    let varnish = ""; // variable qui est vide et qui va nous permettre de créer le "select" du "form" en html pour que le client puisse sélectionner le vernis du produit
+    let varnishOptions = ""; // variable qui est vide et qui va nous permettre de créer le "select" du "form" en html pour que le client puisse sélectionner le vernis du produit
 
-    // product.allVarnish.forEach((vernis) => {
-    //   varnish += `<option value ="${vernis}">${vernis}</option>`;
-    // });
+    product.varnish.forEach((vernis) => {
+      varnishOptions += `<option value ="${vernis}">${vernis}</option>`;
+    });
 
     // Ajout du template avec innerHTML :
     singleProductDOM.innerHTML += `
@@ -40,10 +40,10 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
             <input type="number" id="productQty" min="1" value="1">
             <div class="varnishSelection">
                 <label for="customSelection">Vernis : </label>
-                <select id="customSelection">${product.varnish}</select>
+                <select id="customSelection">${varnishOptions}</select>
             </div>
 
-            <p class="product-details__price">Prix : <span class="prix">${productUnitPrice}</span> €</p>
+            <p class="product-details__price" >Prix : <span class="prix" id="totalPrice">${productUnitPrice}</span> €</p>
             <button class="addToCart">Ajouter au panier</button>
         </form>
     </div>`;
@@ -56,25 +56,25 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
       addLocalStorage();
     });
 
-    const varnishElt = document.getElementById("customSelection");
-    const quantityElt = document.getElementById("productQty");
-
-    // On ajoute au local Storage qu'on vient de créer
-
-    let cartFill = JSON.parse(localStorage.getItem("basket"));
-
-    let productObj = {
-      _id: product._id,
-      image: product.imageUrl,
-      name: product.name,
-      varnish: varnishElt.nodeValue,
-      quantity: quantityElt.nodeValue,
-      totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
-      price: product.price / 100,
-    };
-
     // Création de la fonction addLocalStorage : stocke les données dans un objet
     function addLocalStorage() {
+      const varnishElt = document.getElementById("customSelection");
+      const quantityElt = document.getElementById("productQty");
+
+      let productObj = {
+        _id: product._id,
+        image: product.imageUrl,
+        name: product.name,
+        varnish: varnishElt.nodeValue,
+        quantity: quantityElt.nodeValue,
+        totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
+        price: product.price / 100,
+      };
+
+      // On ajoute au local Storage qu'on vient de créer
+
+      let cartFill = JSON.parse(localStorage.getItem("basket"));
+
       // Si je n'ai pas de panier
 
       if (!cartFill) {
@@ -92,6 +92,7 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
         newCart.push(productObj);
         localStorage.setItem("basket", JSON.stringify(newCart));
       }
+      window.location.href = "cart.html";
     }
   });
 

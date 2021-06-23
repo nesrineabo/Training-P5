@@ -31,7 +31,7 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
   })
 
   .then((data) => {
-    // si response ok, renvoie d'une seconde promesse
+    // si response ok, renvoi d'une seconde promesse
     data.forEach((produit) => {
       // boucle pour générer dynamiquement du HTML dans le DOM
 
@@ -62,5 +62,5 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
   })
 
   .catch((error) => {
-    console.log(error);
+    console.log("Hu ho y'a une erreur :/");
   });
