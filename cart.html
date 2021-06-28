@@ -35,70 +35,132 @@
     <!-- Contenu pour afficher le tableau récapitulatif + formulaire info client -->
 
     <!-- Tableau récaputilatif -->
-    <section class="container-board">
-        <h2>Votre panier</h2>
-        <table>
-            <thead>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Sous-total</th>
-            </thead>
-            <tbody>
-                <!-- Test -->
-                <td>Meuble Chêne</td>
-                <td>Total</>
-                <td>0,00€</td>
-            </tbody>
-        </table>
 
-    </section>
+    <div class="shopping-cart">
+        <div class="title">
+            <h3 class="title__cart">Votre Panier</h3>
+        </div>
+
+        <!-- Produit 1 -->
+
+        <div class="cart-item">
+            <div class="cart-remove">
+                <span><i class="fas fa-times"></i></span>
+            </div>
+
+            <div class="cart-thumbnail">
+                <img src="./images/oak_1.jpg" alt="">
+            </div>
+
+            <div class="cart-description">
+                <h4>Meuble Chene</h4>
+                <span>Tan</span>
+            </div>
+
+            <div class="cart-subtotal">
+                <span>50€</span>
+            </div>
+
+            <div class="cart-quantity">
+                <span class="minus-btn bouton">
+                    <i class="fas fa-minus"></i>
+                </span>
+                <input type="text" name="name" value="1" min="1">
+                <span class="plus-btn bouton">
+                    <i class="fas fa-plus"></i>
+                </span>
+            </div>
+
+            <div class="cart-total">
+                <span>50€</span>
+            </div>
+        </div>
+
+        <!-- Produit 2 -->
+
+        <div class="cart-item">
+            <div class="cart-remove">
+                <span><i class="fas fa-times"></i></span>
+            </div>
+
+            <div class="cart-thumbnail">
+                <img src="./images/oak_2.jpg" alt="">
+            </div>
+
+            <div class="cart-description">
+                <h4>Meuble Chene 2</h4>
+                <span>Tan</span>
+            </div>
+
+            <div class="cart-subtotal">
+                <span>50€</span>
+            </div>
+
+            <div class="cart-quantity">
+                <span class="minus-btn bouton">
+                    <i class="fas fa-minus"></i>
+                </span>
+                <input type="text" name="name" value="1" min="1">
+                <span class="plus-btn bouton">
+                    <i class="fas fa-plus"></i>
+                </span>
+            </div>
+
+            <div class="cart-total">
+                <span>50€</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Formulaire Client -->
     <section class="customer-info">
+        <h3 class="customer-info_title">Coordonnées d'expédition</h3>
+
         <form class="form-container" method="POST" id="submitForm">
 
             <div class="form-group">
-                <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" placeholder=" Votre Prénom " class="" minlength="2 " id="prenom ">
+                <label for="prenom">Prénom<abbr class="required" title="required">*</abbr>
+                </label>
+                <input type="text" name="prenom" placeholder=" Votre Prénom " class="entry" minlength="2 " id="prenom ">
             </div>
 
-            <div class="form-group ">
+            <div class="form-group">
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" placeholder="Votre Nom " class="" minlength="3 " id="nom ">
+                <input type="text" name="nom" placeholder=" Votre Nom " class="entry" minlength="3 " id="nom ">
             </div>
 
             <div class="form-group ">
                 <label for="adresse">Adresse</label>
-                <input type="text " name="adresse " placeholder="Votre Adresse " class="" minlength="8 " id="adresse">
+                <input type="text " name="adresse " placeholder=" Votre Adresse " class="entry" minlength="8 "
+                    id="adresse">
             </div>
 
             <div class="form-group ">
                 <label for="zipcode">Code Postal</label>
-                <input type="text " name="adresse " placeholder="Votre Code Postal " class="" maxlength="5 "
+                <input type="text" name="zipcode " placeholder=" Votre Code Postal " class="entry" maxlength="5 "
                     id="zipcode ">
             </div>
 
             <div class="form-group ">
                 <label for="ville ">Ville</label>
-                <input type="text " name="ville " placeholder="Votre Ville " class="" minlength="1 " id="ville ">
+                <input type="text " name="ville " placeholder=" Votre Ville " class="entry" minlength="1 " id="ville ">
+            </div>
+
+            <div class="form-group ">
+                <label for="phone">Téléphone</label>
+                <input type="tel" name="phone" placeholder=" Votre Numéro de Téléphone" class="entry" id="phone">
             </div>
 
             <div class="form-group ">
                 <label for="email ">Email</label>
-                <input type="email" name="email" placeholder="Votre Email " class="" id="email">
-            </div>
-
-            <div class="form-group ">
-                <label for="phone">Numéro de téléphone</label>
-                <input type="tel" name="phone" placeholder="Votre Numéro de Téléphone" class="" id="phone">
-            </div>
-
-            <div class="form-group ">
-                <button id="confirmPurchase" type="submit " class="order-btn">Commander</button>
+                <input type="email" name="email" placeholder=" Votre Email " class="entry" id="email">
             </div>
 
         </form>
+
+        <div class="form-group_confirm ">
+            <button id="confirmPurchase" type="submit " class="order-button">Passer la commande</button>
+        </div>
 
     </section>
 
@@ -115,7 +177,7 @@
 
     <!-- Fin du Footer -->
 
-    <script src="/Front-End/JS/index.js"></script>
+    <script src=""></script>
 </body>
 
 </html>

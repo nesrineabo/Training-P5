@@ -33,6 +33,7 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
   .then((data) => {
     // si response ok, renvoi d'une seconde promesse
     data.forEach((produit) => {
+      //console.log(produit);
       // boucle pour générer dynamiquement du HTML dans le DOM
 
       let productPrice = produit.price / 100; // variable prix pour le diviser par 100
@@ -62,5 +63,6 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
   })
 
   .catch((error) => {
+    alert("Utiliser live Server ou local server");
     console.log("Hu ho y'a une erreur :/");
   });

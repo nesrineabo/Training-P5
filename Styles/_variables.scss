@@ -32,3 +32,20 @@ a {
 a:visited {
   color: none;
 }
+
+@mixin btn-style {
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: $mainSpacing;
+  font-size: 1rem;
+  background: $primaryColor;
+  color: $mainBlack;
+  border: 1px solid $primaryColor;
+  transition: $mainTransition;
+  cursor: pointer;
+}
+
+@mixin btn-style-hover {
+  background-color: transparent;
+  color: $primaryColor;
+}

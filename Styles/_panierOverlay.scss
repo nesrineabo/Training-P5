@@ -109,9 +109,10 @@
 }
 
 .show-response {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(0);
+  // visibility: visible;
+  // opacity: 1;
+  // transform: translateX(0);
+  display: block;
 }
 
 .mask-response {

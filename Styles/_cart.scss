@@ -1,0 +1,176 @@
+@import "./variables";
+
+// Votre Panier
+
+.shopping-cart {
+  margin: 80px 50px;
+  background: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title__cart {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e1e8ee;
+  text-align: center;
+  color: $mainBlack;
+  padding-bottom: 30px;
+}
+
+.cart-item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.bouton {
+  position: relative;
+  &:hover {
+    color: $primaryColor;
+  }
+}
+
+.cart-remove {
+  cursor: pointer;
+  font-size: 20px;
+  &:hover {
+    color: $primaryColor;
+  }
+}
+
+.cart-thumbnail {
+  margin-right: 50px;
+}
+
+.cart-description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 150px;
+
+  h4 {
+    font-size: 16px;
+  }
+
+  span {
+    display: block;
+    font-size: 14px;
+    color: #9fa2a5;
+  }
+}
+
+.cart-subtotal {
+  color: #8f9194;
+}
+
+.cart-quantity {
+  margin-right: 60px;
+}
+.cart-quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+
+.bouton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.minus-btn {
+  margin-bottom: 3px;
+}
+.plus-btn {
+  margin-top: 2px;
+}
+
+.cart-total {
+  width: 83px;
+  text-align: center;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+// Coordonnées d'expédition
+
+.customer-info {
+  margin: 40px;
+  background-color: rgba(236, 236, 236, 0.32);
+  padding: 20px;
+  border-radius: 12px;
+  &_title {
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 960px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+label {
+  line-height: 2;
+  font-size: 15px;
+  width: 100px;
+}
+
+.entry {
+  width: 50%;
+  border-radius: 0.375em;
+  border: 1px solid rgb(196, 196, 196);
+}
+
+.required {
+  color: red;
+  font-weight: 700;
+  border: 0;
+  text-decoration: none;
+}
+
+.form-group {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+
+  &:nth-of-type(1) {
+    margin-top: 30px;
+  }
+  &_confirm {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+::placeholder {
+  font-style: italic;
+  opacity: 0.4;
+}
+
+.form-group input {
+  padding: 6px;
+}
+
+.order-button {
+  @include btn-style;
+  &:hover {
+    @include btn-style-hover;
+  }
+}

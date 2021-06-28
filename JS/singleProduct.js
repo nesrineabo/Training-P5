@@ -50,58 +50,76 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
 
     //--appel la fonction de calcul pour le prix total
     calculePrice(productUnitPrice);
-
-    //On écoute un évènement au clic sur ajouter au panier qui ajoutera le produit dans notre LocalStorage
-    btnSPCard.addEventListener("click", () => {
-      addLocalStorage();
-    });
-
-    // Création de la fonction addLocalStorage : stocke les données dans un objet
-    function addLocalStorage() {
-      const varnishElt = document.getElementById("customSelection");
-      const quantityElt = document.getElementById("productQty");
-
-      let productObj = {
-        _id: product._id,
-        image: product.imageUrl,
-        name: product.name,
-        varnish: varnishElt.nodeValue,
-        quantity: quantityElt.nodeValue,
-        totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
-        price: product.price / 100,
-      };
-
-      // On ajoute au local Storage qu'on vient de créer
-
-      let cartFill = JSON.parse(localStorage.getItem("basket"));
-
-      // Si je n'ai pas de panier
-
-      if (!cartFill) {
-        let cartFill = [];
-        cartFill.push(productObj);
-        localStorage.setItem("basket", JSON.stringify(cartFill));
-        window.location.href = "cart.html";
-      } else if (!cartFill.some((p) => p._id === productObj._id)) {
-        // vérification : si je n'ai pas déjà mon objet dans mon panier avant l'ajout
-        cartFill.push(productObj);
-        localStorage.setItem("basket", JSON.stringify(cartFill));
-      } else {
-        // Sinon j'enlève celui qui y est déjà et je remplace avec la nouvelle quantité
-        const newCart = cartFill.filter((p) => p._id !== productObj._id);
-        newCart.push(productObj);
-        localStorage.setItem("basket", JSON.stringify(newCart));
-      }
-      window.location.href = "cart.html";
-    }
   });
 
 // Création de la fonction qui calcule le prix en fonction de la quantité sélectionnée
+
 function calculePrice(productUnitPrice) {
   let quantities = document.getElementById("productQty");
+
   quantities.addEventListener("change", (e) => {
     const result = document.getElementById("totalPrice");
     result.textContent = `${productUnitPrice}` * `${e.target.value}`;
     console.log(e.target);
   });
 }
+
+// -------- TEST 2 LOCAL STORAGE -------------
+
+// Création de la variable pour tous les boutons "ajouter au panier" de la singleProduct page
+let carts = document.querySelector(".addToCart");
+console.log("ajouté");
+// Création d'un EventListener
+// carts[i].addEventListener("click", () => {
+//   console.log("ajouté au panier");
+// });
+
+//-------------------------------------------------------------------------
+// TEST 1 pour récupérer les infos produit et les envoyer au panier
+
+//   //On écoute un évènement au clic sur ajouter au panier qui ajoutera le produit dans notre LocalStorage
+//   btnSPCard.addEventListener("click", () => {
+//     addLocalStorage();
+//   });
+
+//   // Création de la fonction addLocalStorage : stocke les données dans un objet
+//   function addLocalStorage() {
+//     const varnishElt = document.getElementById("customSelection");
+//     const quantityElt = document.getElementById("productQty");
+
+//     let productObj = {
+//       _id: product._id,
+//       image: product.imageUrl,
+//       name: product.name,
+//       varnish: varnishElt.nodeValue,
+//       quantity: quantityElt.nodeValue,
+//       totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
+//       price: product.price / 100,
+//     };
+
+//     // On ajoute au local Storage qu'on vient de créer
+
+//     let cartFill = JSON.parse(localStorage.getItem("basket"));
+
+//     // Si je n'ai pas de panier
+
+//     if (!cartFill) {
+//       let cartFill = [];
+//       cartFill.push(productObj);
+//       localStorage.setItem("basket", JSON.stringify(cartFill));
+//       window.location.href = "cart.html";
+//     } else if (!cartFill.some((p) => p._id === productObj._id)) {
+//       // vérification : si je n'ai pas déjà mon objet dans mon panier avant l'ajout
+//       cartFill.push(productObj);
+//       localStorage.setItem("basket", JSON.stringify(cartFill));
+//     } else {
+//       // Sinon j'enlève celui qui y est déjà et je remplace avec la nouvelle quantité
+//       const newCart = cartFill.filter((p) => p._id !== productObj._id);
+//       newCart.push(productObj);
+//       localStorage.setItem("basket", JSON.stringify(newCart));
+//     }
+//     window.location.href = "cart.html";
+//   }
+// });
+
+//-------------------------------------------------------------------------
