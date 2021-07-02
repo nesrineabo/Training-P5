@@ -1,17 +1,16 @@
 const singleProductDOM = document.querySelector(".product-container");
 const params = new URLSearchParams(window.location.search);
 
-const btnSPCard = document.querySelector(".addToCart"); // cste bouton "ajouter au panier"
-
 // Je fais requete avec l'URL de mon produit avec son id
 fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
   .then((response) => {
     // ça me renvoit une 1ère promesse
-    if (response.ok) {
-      return (product = response.json()); // si la réponse est ok, me retourne un objet JSON
-    } else {
-      Promise.reject(response.status); // me retourne la cause de l'échec
-    }
+    return (product = response.json());
+    // if (response.ok) {
+    //   return (product = response.json()); // si la réponse est ok, me retourne un objet JSON
+    // } else {
+    //   Promise.reject(response.status); // me retourne la cause de l'échec
+    // }
   })
 
   .then((product) => {
@@ -44,12 +43,60 @@ fetch(`http://localhost:3000/api/furniture/${params.get("id")}`)
             </div>
 
             <p class="product-details__price" >Prix : <span class="prix" id="totalPrice">${productUnitPrice}</span> €</p>
-            <button class="addToCart">Ajouter au panier</button>
+            
         </form>
+        <button class="addToCart" id="ajoutPanier">Ajouter au panier</button>
     </div>`;
 
     //--appel la fonction de calcul pour le prix total
     calculePrice(productUnitPrice);
+
+    const btnAjoutPanier = document.getElementById("ajoutPanier"); // cste bouton "ajouter au panier"
+
+    btnAjoutPanier.addEventListener("click", () => {
+      ajoutLocalStor();
+    });
+
+    // Création de la fonction addLocalStorage : stocke les données dans un objet
+    function ajoutLocalStor() {
+      const varnishElt = document.getElementById("customSelection");
+      const quantityElt = document.getElementById("productQty");
+
+      let productObj = {
+        _id: product._id,
+        image: product.imageUrl,
+        name: product.name,
+        varnish: varnishElt.value,
+        quantity: quantityElt.value,
+        totalPrice: (product.price * parseInt(quantityElt.value)) / 100,
+        price: product.price / 100,
+      };
+
+      // On ajoute au local Storage qu'on vient de créer
+
+      let cart = JSON.parse(localStorage.getItem("basket"));
+
+      // Si je n'ai pas de panier
+
+      if (!cart) {
+        let cart = []; // je dis que la variable du panier doit être un tableau
+        cart.push(productObj);
+        localStorage.setItem("basket", JSON.stringify(cart));
+        //window.location.href = "cart.html";
+
+        // vérification : si je n'ai pas déjà mon objet dans mon panier avant l'ajout
+      } else if (!cart.some((p) => p._id === productObj._id)) {
+        cart.push(productObj);
+        localStorage.setItem("basket", JSON.stringify(cart));
+      } else {
+        // Sinon j'enlève celui qui y est déjà et je remplace avec la nouvelle quantité
+        const newCart = cart.filter((p) => p._id !== productObj._id);
+        newCart.push(productObj);
+        localStorage.setItem("basket", JSON.stringify(newCart));
+      }
+
+      //window.location.href = "cart.html";
+    }
   });
 
 // Création de la fonction qui calcule le prix en fonction de la quantité sélectionnée
@@ -60,15 +107,33 @@ function calculePrice(productUnitPrice) {
   quantities.addEventListener("change", (e) => {
     const result = document.getElementById("totalPrice");
     result.textContent = `${productUnitPrice}` * `${e.target.value}`;
-    console.log(e.target);
+    console.log(e.target.value); // On voit bien la quantité sélectionnée
+    console.log(result.textContent); // On voit le prix total (prix unitaire x qté)
   });
 }
+
+// ------- TEST 3 AJOUT PRODUIT DANS LOCAL STORAGE ----------
+
+// function ajoutPanier(data) {
+//   btnSpCard.addEventListener("click", () => {
+//     let produit = {
+//       image: data.imageUrl,
+//       id: data._id,
+//       name: data.name,
+//       varnish: varnishOptions.value,
+//       price: productUnitPrice.value,
+//       quantity: 1,
+//     };
+
+//     console.log(data);
+//   });
+// }
 
 // -------- TEST 2 LOCAL STORAGE -------------
 
 // Création de la variable pour tous les boutons "ajouter au panier" de la singleProduct page
-let carts = document.querySelector(".addToCart");
-console.log("ajouté");
+// let carts = document.querySelector(".addToCart");
+// console.log("ajouté");
 // Création d'un EventListener
 // carts[i].addEventListener("click", () => {
 //   console.log("ajouté au panier");

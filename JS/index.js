@@ -45,10 +45,6 @@ fetch("http://localhost:3000/api/furniture") //Récupération des données sur l
                         <img src="${produit.imageUrl}" alt="${
         produit.name
       }" class="product-img" />
-                        <button class="bag-btn" data-id="1">
-                            <i class="fas fa-shopping-cart"></i>
-                            Ajouter au Panier
-                        </button>
                     </div>
                     <h3 id="productName">${produit.name}</h3>
                     <h4 id="productPrice">${productPrice.toFixed(2)} €</h4>

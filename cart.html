@@ -36,81 +36,22 @@
 
     <!-- Tableau récaputilatif -->
 
-    <div class="shopping-cart">
-        <div class="title">
-            <h3 class="title__cart">Votre Panier</h3>
-        </div>
-
-        <!-- Produit 1 -->
-
-        <div class="cart-item">
-            <div class="cart-remove">
-                <span><i class="fas fa-times"></i></span>
+    <main class="main-container">
+        <section class="shopping-cart">
+            <div class="title">
+                <h3 class="title__cart">Votre Panier</h3>
             </div>
+        </section>
 
-            <div class="cart-thumbnail">
-                <img src="./images/oak_1.jpg" alt="">
+        <section class="cart-container">
+
+        </section>
+
+        <section class="prixTotal-container">
+            <div id="prixTotal">
             </div>
-
-            <div class="cart-description">
-                <h4>Meuble Chene</h4>
-                <span>Tan</span>
-            </div>
-
-            <div class="cart-subtotal">
-                <span>50€</span>
-            </div>
-
-            <div class="cart-quantity">
-                <span class="minus-btn bouton">
-                    <i class="fas fa-minus"></i>
-                </span>
-                <input type="text" name="name" value="1" min="1">
-                <span class="plus-btn bouton">
-                    <i class="fas fa-plus"></i>
-                </span>
-            </div>
-
-            <div class="cart-total">
-                <span>50€</span>
-            </div>
-        </div>
-
-        <!-- Produit 2 -->
-
-        <div class="cart-item">
-            <div class="cart-remove">
-                <span><i class="fas fa-times"></i></span>
-            </div>
-
-            <div class="cart-thumbnail">
-                <img src="./images/oak_2.jpg" alt="">
-            </div>
-
-            <div class="cart-description">
-                <h4>Meuble Chene 2</h4>
-                <span>Tan</span>
-            </div>
-
-            <div class="cart-subtotal">
-                <span>50€</span>
-            </div>
-
-            <div class="cart-quantity">
-                <span class="minus-btn bouton">
-                    <i class="fas fa-minus"></i>
-                </span>
-                <input type="text" name="name" value="1" min="1">
-                <span class="plus-btn bouton">
-                    <i class="fas fa-plus"></i>
-                </span>
-            </div>
-
-            <div class="cart-total">
-                <span>50€</span>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <!-- Formulaire Client -->
     <section class="customer-info">
@@ -156,11 +97,13 @@
                 <input type="email" name="email" placeholder=" Votre Email " class="entry" id="email">
             </div>
 
+            <div class="form-group_confirm ">
+                <button id="confirmPurchase" type="submit " class="order-button">Passer la commande</button>
+            </div>
+
         </form>
 
-        <div class="form-group_confirm ">
-            <button id="confirmPurchase" type="submit " class="order-button">Passer la commande</button>
-        </div>
+
 
     </section>
 
@@ -177,7 +120,7 @@
 
     <!-- Fin du Footer -->
 
-    <script src=""></script>
+    <script src="./JS/cart.js"></script>
 </body>
 
 </html>
