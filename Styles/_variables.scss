@@ -27,10 +27,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 @mixin btn-style {

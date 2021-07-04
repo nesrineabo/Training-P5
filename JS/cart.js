@@ -10,7 +10,7 @@ if (localStorage.length > 0) {
     itemDOM.innerHTML += `
         <div class="cart-item">
             <div class="cart-remove">
-                <button class="btn-remove" onclick="deleteItem"><i class="fas fa-times"></i></button>
+                <button class="btn-remove" onclick="deleteItem('${product._id}')"><i class="fas fa-times"></i></button>
             </div>
 
             <div class="cart-thumbnail">
@@ -26,7 +26,7 @@ if (localStorage.length > 0) {
                 <span class="minus-btn bouton">
                     <i class="fas fa-minus"></i>
                 </span>
-                <input id="productQty" type="text" name="name" value="1" min="1">
+                <input id="productQty${product._id}" type="text" name="name" value="1" min="1">
                 <span class="plus-btn bouton">
                     <i class="fas fa-plus"></i>
                 </span>
@@ -79,8 +79,10 @@ function calculCart() {
 
 const lastname = document.getElementById("nom");
 const firstname = document.getElementById("prenom");
-const address = document.getElementById("adresse ");
-const city = document.getElementById("ville ");
+const address = document.getElementById("adresse");
+const zipcode = document.getElementById("zipcode");
+const city = document.getElementById("ville");
+const phone = document.getElementById("phone");
 const email = document.getElementById("email");
 
 const form = document.querySelector("#submitForm");
@@ -89,62 +91,68 @@ const form = document.querySelector("#submitForm");
 
 // fonction envoi au backend
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+form.addEventListener("click", (e) => {
+  // e.preventDefault();
 
   const contact = {
     firstName: firstname.value,
     lastName: lastname.value,
     address: address.value,
+    zipcode: zipcode.value,
     city: city.value,
+    phone: phone.value,
     email: email.value,
   };
+
+  // const name = firstname.value;
 
   console.log(contact);
 
   const products = []; //Meubles en tableau à envoyer en POST
-  const donnees = { contact, products }; //Création de données comme objet contact + tableau des produits
 
   product.forEach((furniture) => {
     products.push(furniture._id);
   });
 
+  const donnees = { contact, products }; //Création de données comme objet contact + tableau des produits
+  console.log(donnees);
+
   //En-tête de requête : en POST et pas GET
-  const options = {
-    method: "POST",
-    body: JSON.stringify(donnees),
-    headers: { "Content-Type": "application/json" },
-  };
+  // const options = {
+  //   method: "POST",
+  //   body: JSON.stringify(donnees),
+  //   headers: { "Content-Type": "application/json" },
+  // };
 
-  if (
-    firstname == "" ||
-    lastname == "" ||
-    address == "" ||
-    city == "" ||
-    email == ""
-  ) {
-    alert("Veuillez remplir tous les champs avant de valider votre commande.");
-  } else {
-    // la requete POST en elle-même
-    fetch("http://localhost:3000/api/furniture/order", options)
-      // reçoit les données du backend
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          Promise.reject(response.status);
-        }
-      })
+  // if (
+  //   firstname == "" ||
+  //   lastname == "" ||
+  //   address == "" ||
+  //   city == "" ||
+  //   email == ""
+  // ) {
+  //   alert("Veuillez remplir tous les champs avant de valider votre commande.");
+  // } else {
+  //   // la requete POST en elle-même
+  //   fetch("http://localhost:3000/api/furniture/order", options)
+  //     // reçoit les données du backend
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response.json();
+  //       } else {
+  //         Promise.reject(response.status);
+  //       }
+  //     })
 
-      // TTT pour l'obtetion du numéro de commande
-      .then((datas) => {
-        const orderId = datas.orderId;
+  //     // TTT pour l'obtetion du numéro de commande
+  //     .then((datas) => {
+  //       const orderId = datas.orderId;
 
-        window.location.href = `orderConfirmed.html?ncomm=${orderId}`;
-      })
+  //       window.location.href = `orderConfirmed.html?ncomm=${orderId}`;
+  //     })
 
-      .catch((error) => {
-        alert(error);
-      });
-  }
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  // }
 });

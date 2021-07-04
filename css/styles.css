@@ -7,6 +7,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -24,33 +25,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  color: #222;
-  background: #fff;
-  font-family: "Lato", sans-serif;
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: none;
-}
-
-a:visited {
-  color: none;
+  all: unset;
 }
 
 * {
@@ -70,10 +50,37 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  color: #222;
+  background: #fff;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: none;
+  all: unset;
+}
+
+a:visited a:focus {
+  color: none;
+  all: unset;
 }
 
 .cart-overlay {
@@ -212,10 +219,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 .navbar {
@@ -278,7 +287,7 @@ a:visited {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 20px;
+  margin: 80px 40px 40px 40px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -ms-flex-line-pack: center;
@@ -399,10 +408,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 .navbar {
@@ -477,10 +488,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 .hero {
@@ -546,10 +559,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 .products {
@@ -690,10 +705,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 footer {
@@ -738,10 +755,12 @@ body {
 a {
   text-decoration: none;
   color: none;
+  all: unset;
 }
 
-a:visited {
+a:visited a:focus {
   color: none;
+  all: unset;
 }
 
 .shopping-cart {
@@ -834,7 +853,7 @@ a:visited {
 }
 
 .cart-quantity input {
-  -webkit-appearance: none;
+  text-decoration: none;
   border: none;
   text-align: center;
   width: 32px;
@@ -889,6 +908,8 @@ a:visited {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1001,5 +1022,47 @@ label {
   font-size: 18px;
   color: #c4c4c4;
   font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  color: #222;
+  background: #fff;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: none;
+  all: unset;
+}
+
+a:visited a:focus {
+  color: none;
+  all: unset;
+}
+
+.title-confirmation h2 {
+  margin: 40px;
+  text-align: center;
+}
+
+.confirmation-container {
+  margin: 40px;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.order-confirmed-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */
