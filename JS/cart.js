@@ -77,8 +77,8 @@ function calculCart() {
 
 // ------------ Validation du Formulaire ----------
 
-const lastname = document.getElementById("nom");
 const firstname = document.getElementById("prenom");
+const lastname = document.getElementById("nom");
 const address = document.getElementById("adresse");
 const zipcode = document.getElementById("zipcode");
 const city = document.getElementById("ville");
@@ -91,68 +91,74 @@ const form = document.querySelector("#submitForm");
 
 // fonction envoi au backend
 
-form.addEventListener("click", (e) => {
-  // e.preventDefault();
+form.addEventListener("submit", (e) => {
+  //alert("Formulaire Envoyé !"); //Le bouton fonctionne
+
+  e.preventDefault();
 
   const contact = {
-    firstName: firstname.value,
-    lastName: lastname.value,
-    address: address.value,
+    firstName: prenom.value,
+    lastName: nom.value,
+    address: adresse.value,
     zipcode: zipcode.value,
-    city: city.value,
+    city: ville.value,
     phone: phone.value,
     email: email.value,
   };
 
-  // const name = firstname.value;
+  // // const name = firstname.value;
 
   console.log(contact);
 
   const products = []; //Meubles en tableau à envoyer en POST
+  const donnees = { contact, products }; //Création de données comme objet contact + tableau des produits
 
-  product.forEach((furniture) => {
+  items.forEach((furniture) => {
     products.push(furniture._id);
   });
 
-  const donnees = { contact, products }; //Création de données comme objet contact + tableau des produits
   console.log(donnees);
 
   //En-tête de requête : en POST et pas GET
-  // const options = {
-  //   method: "POST",
-  //   body: JSON.stringify(donnees),
-  //   headers: { "Content-Type": "application/json" },
-  // };
+  const options = {
+    method: "POST",
+    body: JSON.stringify(donnees),
+    headers: { "Content-Type": "application/json" },
+  };
 
-  // if (
-  //   firstname == "" ||
-  //   lastname == "" ||
-  //   address == "" ||
-  //   city == "" ||
-  //   email == ""
-  // ) {
-  //   alert("Veuillez remplir tous les champs avant de valider votre commande.");
-  // } else {
-  //   // la requete POST en elle-même
-  //   fetch("http://localhost:3000/api/furniture/order", options)
-  //     // reçoit les données du backend
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json();
-  //       } else {
-  //         Promise.reject(response.status);
-  //       }
-  //     })
+  if (
+    firstname === "" ||
+    lastname === "" ||
+    address === "" ||
+    zipcode === "" ||
+    city === "" ||
+    phone === "" ||
+    email === ""
+  ) {
+    alert("Veuillez remplir tous les champs avant de valider votre commande.");
+  } else {
+    // la requete POST en elle-même
+    fetch("http://localhost:3000/api/furniture/order", options)
+      // reçoit les données du backend
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          Promise.reject(response.status);
+        }
+      })
 
-  //     // TTT pour l'obtetion du numéro de commande
-  //     .then((datas) => {
-  //       const orderId = datas.orderId;
+      // TTT pour l'obtetion du numéro de commande
+      .then((datas) => {
+        const orderId = datas.orderId;
 
-  //       window.location.href = `orderConfirmed.html?ncomm=${orderId}`;
-  //     })
+        window.location.href = `orderConfirmed.html?ncomm=${orderId}`;
+      })
 
-  //     .catch((error) => {
-  //       alert(error);
-  //     });
-  // }
+      .catch((error) => {
+        alert(
+          "Veuillez remplir les coordonnées d'expédition pour valider votre commande !"
+        );
+      });
+  }
 });
